@@ -1,2 +1,8 @@
 # ALC
-Programas referentes às listas 3, 4 e 5 da disciplina "Álgebra Linear Computacional" da UFRJ em 2017.1
+Programas referentes às listas 3, 4 e 5 da disciplina "Álgebra Linear Computacional" da UFRJ em 2017.1.
+
+ - Raízes de funções não-lineares
+ - Solução de sistemas não-lineares (EM BREVE)
+ - Ajustes não-lineares (EM BREVE)
+ - Integração numérica
+ - Solução de equações diferenciais (EM BREVE)
