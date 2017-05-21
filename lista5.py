@@ -104,11 +104,15 @@ def funcao(n, x):
     if n==3:
         hs=3.0
         tz=5.0
-        return exp(-16*pi**3/((x*tz)**4))*4*(pi**3)*(hs**2)/((x**5)*(tz**4))
+        return (funcao(2,x)/2)*exp(-16*pi**3/((x*tz)**4))*4*(pi**3)*(hs**2)/((x**5)*(tz**4))
+    if n==3.5:
+        hs=3.0
+        tz=5.0
+        return (x**2)*(funcao(2,x)/2)*exp(-16*pi**3/((x*tz)**4))*4*(pi**3)*(hs**2)/((x**5)*(tz**4))
     if n==4:
         return 2+2*x-x**2+3*x**3
     if n==5:
-        return 1/(1+x**2)
+        return 1.0/(1+x**2)
 
 def funcao1(x):
     return exp(-x**2/2)/sqrt(2*pi)
@@ -120,7 +124,10 @@ def funcao2b(x,omegaN=1.0,sN=2.0,csi=0.05):
     return (x**2)*sN/((1-(x/omegaN)**2)**2+(2*csi*x/omegaN)**2)
 
 def funcao3(x,hs=3.0,tz=5.0):
-    return exp(-16*pi**3/((x*tz)**4))*4*(pi**3)*(hs**2)/((x**5)*(tz**4))
+    return (funcao2(x)/2)*exp(-16*pi**3/((x*tz)**4))*4*(pi**3)*(hs**2)/((x**5)*(tz**4))
+
+def funcao3b(x,hs=3.0,tz=5.0):
+    return (x**2)*(funcao2(x)/2)*exp(-16*pi**3/((x*tz)**4))*4*(pi**3)*(hs**2)/((x**5)*(tz**4))
 
 def funcao4(x):
     return 2+2*x-x**2+3*x**3
