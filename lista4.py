@@ -19,31 +19,34 @@ def bissecao(nFuncao, a, b, tol=0.0001):
     return x
 
 def newtonRaiz(nFuncao, x0, secante=False, ITERMAX=1000000, tol=0.0001):
-    if not secante:
-        for i in range(ITERMAX):
-            x=x0-funcao(nFuncao, x0)/dfuncao(nFuncao, x0)
-            if abs(x-x0)<tol:
-                return x
-            x0=x
-    else:
-        delta=0.001
-        x=x0+delta
-        fa=funcao(nFuncao, x0)
-        for i in range(ITERMAX):
-            fi=funcao(nFuncao, x)
-            xprox=x-fi*(x-x0)/(fi-fa)
-            if abs(xprox-x)<tol:
-                return xprox
-            fa=fi
-            x0=x
-            x=xprox
-    return "Convergencia nao foi alcancada"
+    try:
+        if not secante:
+            for i in range(ITERMAX):
+                x=x0-funcao(nFuncao, x0)/dfuncao(nFuncao, x0)
+                if abs(x-x0)<tol:
+                    return x
+                x0=x
+        else:
+            delta=0.001
+            x=x0+delta
+            fa=funcao(nFuncao, x0)
+            for i in range(ITERMAX):
+                fi=funcao(nFuncao, x)
+                xprox=x-fi*(x-x0)/(fi-fa)
+                if abs(xprox-x)<tol:
+                    return xprox
+                fa=fi
+                x0=x
+                x=xprox
+        return "Convergencia nao foi alcancada"
+    except:
+        return "Ponto inadequado"
 
 def interpolacaoInversa(nFuncao, X, ITERMAX=1000000, tol=0.0001):
     if len(X)<3:
-        return "Insert more points"
+        return "Insira mais pontos"
     if len(set(X))<len(X):
-        return "All points must be distinct"
+        return "Todos os pontos devem ser distintos entre si"
     X.sort()
     x0=None
     for i in range(ITERMAX):
