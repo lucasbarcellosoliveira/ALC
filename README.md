@@ -5,4 +5,4 @@ Programas referentes às listas 3, 4 e 5 da disciplina "Álgebra Linear Computac
  - Solução de sistemas não-lineares (EM BREVE)
  - Ajustes não-lineares (EM BREVE)
  - Integração numérica
- - Solução de equações diferenciais (EM BREVE)
+ - Solução de equações diferenciais ordinárias de primeira e segunda ordens
