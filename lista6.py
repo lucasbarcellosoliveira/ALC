@@ -11,16 +11,24 @@ def f3(x, y, y_1, kd=1, g=9.81):
     return -g-kd*y_1*abs(y_1)
 
 def EulerEDO(h, x=0, y=1, lim_sup=2):
+    ##fd=open('EulerEDO.csv', 'wb')
+    ##wr=csv.writer(fd)
+    ##wr.writerow([x,y])
     #pontos=[[x,y]]
     print [x,y]
     while x+h-0.001<=lim_sup:
         y+=h*f1(x,y)
         x+=h
         #pontos+=[[x,y]]
+        ##wr.writerow([x,y])
         print [x,y]
+    ##fd.close()
     #return pontos
 
 def RK2EDO(h, x=0, y=1, lim_sup=2):
+    ##fd=open('RK2EDO.csv', 'wb')
+    ##wr=csv.writer(fd)
+    ##wr.writerow([x,y])
     #pontos=[[x,y]]
     print [x,y]
     while x+h-0.001<=lim_sup:
@@ -29,10 +37,15 @@ def RK2EDO(h, x=0, y=1, lim_sup=2):
         y+=(h/2.0)*(K1+K2)
         x+=h
         #pontos+=[[x,y]]
+        ##wr.writerow([x,y])
         print [x,y]
+    ##fd.close()
     #return pontos
 
 def RK4EDO(h, x=0, y=1, lim_sup=2):
+    ##fd=open('RK4EDO.csv', 'wb')
+    ##wr=csv.writer(fd)
+    ##wr.writerow([x,y])
     #pontos=[[x,y]]
     print [x,y]
     while x+h-0.001<=lim_sup:
@@ -43,7 +56,9 @@ def RK4EDO(h, x=0, y=1, lim_sup=2):
         y+=(h/6.0)*(K1+2*K2+2*K3+K4)
         x+=h
         #pontos+=[[x,y]]
+        ##wr.writerow([x,y])
         print [x,y]
+    ##fd.close()
     #return pontos
 
 def TaylorEDO2(h, x=0, y=0, y_1=0, lim_sup=100):
@@ -60,6 +75,7 @@ def TaylorEDO2(h, x=0, y=0, y_1=0, lim_sup=100):
         #pontos+=[[x,y]]
         ##wr.writerow([x,y])
         print [x,y]
+    ##fd.close()
     #return pontos
 
 def RKNEDO2(h, x=0, y=0, y_1=0, lim_sup=100):
@@ -81,4 +97,5 @@ def RKNEDO2(h, x=0, y=0, y_1=0, lim_sup=100):
         #pontos+=[[x,y]]
         ##wr.writerow([x,y])
         print [x,y]
+    ##fd.close()
     #return pontos
