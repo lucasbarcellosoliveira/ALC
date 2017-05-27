@@ -1,3 +1,7 @@
+# "conventional comment"
+## code regarding .csv writing
+### code regarding printing and writing only some points from all points iterated
+
 from math import *
 ##import csv
 
@@ -73,6 +77,15 @@ def TaylorEDO2(h, x=0, y=0, y_1=0, lim_sup=100):
         y_1+=y_2*h
         x+=h
         #pontos+=[[x,y]]
+        
+        ###if round(x,1).is_integer(): ###prints integers
+        ###    wr.writerow([x,y])
+        ###    print [x,y]
+        
+        ###if round(x,1).is_integer() or (round(x,1)+0.5).is_integer() or (round(x,1)-0.5).is_integer(): ###prints integers and ending with .5
+        ###    wr.writerow([x,y])
+        ###    print [x,y]
+        
         ##wr.writerow([x,y])
         print [x,y]
     ##fd.close()
@@ -95,6 +108,15 @@ def RKNEDO2(h, x=0, y=0, y_1=0, lim_sup=100):
         y_1+=(K1+2*K2+2*K3+K4)/3.0
         x+=h
         #pontos+=[[x,y]]
+        
+        ###if round(x,1).is_integer(): ###prints integers
+        ###    wr.writerow([x,y])
+        ###    print [x,y]
+        
+        ###if round(x,1).is_integer() or (round(x,1)+0.5).is_integer() or (round(x,1)-0.5).is_integer():  ###prints integers and ending with .5
+        ###    wr.writerow([x,y])
+        ###    print [x,y]
+        
         ##wr.writerow([x,y])
         print [x,y]
     ##fd.close()
