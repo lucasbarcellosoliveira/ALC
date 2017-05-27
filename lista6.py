@@ -1,4 +1,5 @@
 from math import *
+##import csv
 
 def f1(x, y):
     return -2*x*(y**2)
@@ -46,6 +47,9 @@ def RK4EDO(h, x=0, y=1, lim_sup=2):
     #return pontos
 
 def TaylorEDO2(h, x=0, y=0, y_1=0, lim_sup=100):
+    ##fd=open('TaylorEDO2.csv', 'wb')
+    ##wr=csv.writer(fd)
+    ##wr.writerow([x,y])
     #pontos=[[x,y]]
     print [x,y]
     while x+h-0.001<=lim_sup:
@@ -54,10 +58,14 @@ def TaylorEDO2(h, x=0, y=0, y_1=0, lim_sup=100):
         y_1+=y_2*h
         x+=h
         #pontos+=[[x,y]]
+        ##wr.writerow([x,y])
         print [x,y]
     #return pontos
 
 def RKNEDO2(h, x=0, y=0, y_1=0, lim_sup=100):
+    ##fd=open('RKNEDO2.csv', 'wb')
+    ##wr=csv.writer(fd)
+    ##wr.writerow([x,y])
     #pontos=[[x,y]]
     print [x,y]
     while x+h-0.001<=lim_sup:
@@ -71,5 +79,6 @@ def RKNEDO2(h, x=0, y=0, y_1=0, lim_sup=100):
         y_1+=(K1+2*K2+2*K3+K4)/3.0
         x+=h
         #pontos+=[[x,y]]
+        ##wr.writerow([x,y])
         print [x,y]
     #return pontos
