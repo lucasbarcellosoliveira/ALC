@@ -237,7 +237,7 @@ def BroydenMethod(nfuncao, X0=[[1.0],[1.0],[1.0]], calculaJacobiana=True, B=[[0,
             B = add(B,scalar(getInverse(aux2)[0][0], aux))
     return "Convergencia NAO ALCANCADA"
 
-def NL_MinimumSquares(nfuncao, B0=[[3.0],[2.0],[1.0]], n=3, niter=1000, tol=10.0**(-4)):
+def NL_MinimumSquares(nfuncao, B0=[[3.0],[2.0],[1.0]], n=3, niter=1000, tol=10.0**(-4)): #B0=[[[10.0],[10.0],[10.0]]
     tolk = 0.0
     #B0 = [[1.0],[2.0],[3.0]]
     for k in range (niter):
