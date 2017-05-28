@@ -194,9 +194,18 @@ def NewtonMethod(nfuncao, X0=[[1.0],[1.0],[1.0]], n=3, niter=1000, tol=10.0**(-4
             return X0
     return "Convergencia NAO ALCANCADA"
 
-def BroydenMethod(nfuncao, X0=[[1.0],[1.0],[1.0]], B=[[0,-3,-1],[3,0,5],[1,5,0]], niter=1000, tol=10.0**(-4)):
+def BroydenMethod(nfuncao, X0=[[1.0],[1.0],[1.0]], calculaJacobiana=True, B=[[0,-3,-1],[3,0,5],[1,5,0]], niter=1000, tol=10.0**(-4)):
     tolk = 0.0
+    dx = 10.0**(-4)
     n=len(B)
+    if calculaJacobiana:
+        #Inicializar matriz Jacobiana
+        B = [[0.0]*n for i in range(n)]
+        for i in range(n):
+            for j in range(n):
+                Xt = X0[:]
+                Xt[j] = [X0[j][0]+dx]
+                B[i][j] = (funcao(nfuncao,Xt,i+1)-funcao(nfuncao,X0,i+1))/dx
     for k in range (niter):
         Y, F, deltaX = [], [], []
         J = B
