@@ -5,16 +5,16 @@
 from math import *
 ##import csv
 
-def f1(x, y):
+def f1(x, y): #retorna valores para a funcao descrita no exercicio 1
     return -2*x*(y**2)
 
-def f2(x, y, y_1, m=1.0, c=0.2,k=1, w=0.5):
+def f2(x, y, y_1, m=1.0, c=0.2,k=1, w=0.5): #retorna valores para a funcao descrita no exercicio 2
     return (2*sin(w*x)+sin(2*w*x)+cos(3*w*x)-k*y-c*y_1)/m
 
-def f3(x, y, y_1, kd=1, g=9.81):
+def f3(x, y, y_1, kd=1, g=9.81): #retorna valores para a funcao descrita no exercicio 3
     return -g-kd*y_1*abs(y_1)
 
-def EulerEDO(h, x=0, y=1, lim_sup=2):
+def EulerEDO(h, x=0, y=1, lim_sup=2): #retorna pontos da solucao para uma EDO de primeira ordem usando o metodo de Euler
     ##fd=open('EulerEDO.csv', 'wb')
     ##wr=csv.writer(fd)
     ##wr.writerow([x,y])
@@ -29,7 +29,7 @@ def EulerEDO(h, x=0, y=1, lim_sup=2):
     ##fd.close()
     #return pontos
 
-def RK2EDO(h, x=0, y=1, lim_sup=2):
+def RK2EDO(h, x=0, y=1, lim_sup=2): #retorna pontos da solucao para uma EDO de primeira ordem usando o metodo de Runge-Kutta de segunda ordem
     ##fd=open('RK2EDO.csv', 'wb')
     ##wr=csv.writer(fd)
     ##wr.writerow([x,y])
@@ -46,7 +46,7 @@ def RK2EDO(h, x=0, y=1, lim_sup=2):
     ##fd.close()
     #return pontos
 
-def RK4EDO(h, x=0, y=1, lim_sup=2):
+def RK4EDO(h, x=0, y=1, lim_sup=2): #retorna pontos da solucao para uma EDO de primeira ordem usando o metodo de Runge-Kutta de quarta ordem
     ##fd=open('RK4EDO.csv', 'wb')
     ##wr=csv.writer(fd)
     ##wr.writerow([x,y])
@@ -65,7 +65,7 @@ def RK4EDO(h, x=0, y=1, lim_sup=2):
     ##fd.close()
     #return pontos
 
-def TaylorEDO2(h, x=0, y=0, y_1=0, lim_sup=100):
+def TaylorEDO2(h, x=0, y=0, y_1=0, lim_sup=100): #retorna pontos da solucao para uma EDO de segunda ordem usando o metodo de expansao em series de Taylor
     ##fd=open('TaylorEDO2.csv', 'wb')
     ##wr=csv.writer(fd)
     ##wr.writerow([x,y])
@@ -91,7 +91,7 @@ def TaylorEDO2(h, x=0, y=0, y_1=0, lim_sup=100):
     ##fd.close()
     #return pontos
 
-def RKNEDO2(h, x=0, y=0, y_1=0, lim_sup=100):
+def RKNEDO2(h, x=0, y=0, y_1=0, lim_sup=100): #retorna pontos da solucao para uma EDO de primeira ordem usando o metodo de Runge-Kutta-Nystrom
     ##fd=open('RKNEDO2.csv', 'wb')
     ##wr=csv.writer(fd)
     ##wr.writerow([x,y])
