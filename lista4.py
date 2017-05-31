@@ -19,7 +19,7 @@ def bissecao(nFuncao, a, b, tol=0.0001): #aplica metodo da bissecao para resolve
             a=x #se f(x)<0, a recebe valor de x
     return x
 
-def newtonRaiz(nFuncao, x0, secante=False, ITERMAX=1000000, tol=0.0001): #aplica meotodo de newton para resolver equacao NL
+def newtonRaiz(nFuncao, x0, secante=False, ITERMAX=1000000, tol=0.0001): #aplica metodo de newton para resolver equacao NL
     try:
         if not secante: #verifica se flag de secante = False
             for i in range(ITERMAX):
