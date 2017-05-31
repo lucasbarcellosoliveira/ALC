@@ -1,15 +1,15 @@
 from math import *
 
 #questao 1; lista 5
-def integracao(nfuncao, a, b, N=3, deGauss=True): #funcao que realizar a integracao numerica de uma funcao f(x) no intervalo [a,b]
+def integracao(nfuncao, a, b, N=3, deGauss=True): #funcao que realiza a integracao numerica de uma funcao f(x) no intervalo [a,b]
     if N<1 or N>10: #numero de pontos de integracao deve estar entre 1 e 10
         return "Numero de pontos invalido"
     L=b-a #define L, o comprimento do intervalo de integracao
     if not deGauss: #integracao polinomial
-        if N>3: #se N>3 e necessario definir um delta para acrescer aos pontos de integracao
+        if N>3: #se N>3, e necessario definir um delta para acrescer aos pontos de integracao
             delta=1.0*L/(N-1)
         P=[]
-        if N==1: #caso apenas 1 ponto de integracao, o valor medio da funcao e calculado
+        if N==1: #caso apenas 1 ponto de integracao, o valor medio da funcao e calculado; regra do Ponto Medio
             P+=[(a+b)/2.0]
             W=[L]
         elif N==2: #regra do Trapezio
@@ -48,7 +48,7 @@ def integracao(nfuncao, a, b, N=3, deGauss=True): #funcao que realizar a integra
                 P+=[a+i*delta]
             W=[2857.0*L/89600,15741.0*L/89600,27.0*L/2240,1209.0*L/5600,2889.0*L/44800,2889.0*L/44800,1209.0*L/5600,27.0*L/2240,15741.0*L/89600,2857.0*L/89600]
     #Metodo da Quadratura de Gauss
-    #Pesos da Quadratura de Gauss são tabelados e ja definidos
+    #Pesos da Quadratura de Gauss sao tabelados e ja definidos
     else: #http://keisan.casio.com/exec/system/1329114617
         if N==1:
             Z=[0]
