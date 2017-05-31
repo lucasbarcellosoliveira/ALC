@@ -1,22 +1,24 @@
 from math import *
 
-def integracao(nfuncao, a, b, N=3, deGauss=True):
-    if N<1 or N>10:
+#questao 1; lista 5
+def integracao(nfuncao, a, b, N=3, deGauss=True): #funcao que realizar a integracao numerica de uma funcao f(x) no intervalo [a,b]
+    if N<1 or N>10: #numero de pontos de integracao deve estar entre 1 e 10
         return "Numero de pontos invalido"
-    L=b-a
-    if not deGauss:
-        if N>3:
+    L=b-a #define L, o comprimento do intervalo de integracao
+    if not deGauss: #integracao polinomial
+        if N>3: #se N>3 e necessario definir um delta para acrescer aos pontos de integracao
             delta=1.0*L/(N-1)
         P=[]
-        if N==1:
+        if N==1: #caso apenas 1 ponto de integracao, o valor medio da funcao e calculado
             P+=[(a+b)/2.0]
             W=[L]
-        elif N==2:
+        elif N==2: #regra do Trapezio
             P+=[a,b]
             W=[L/2.0,L/2.0]
-        elif N==3:
+        elif N==3: #regra de Simpson
             P+=[a,(a+b)/2.0,b]
             W=[L/6.0,2.0*L/3,L/6.0]
+        #calculo das coodernadas e pesos para demais numeros de pontos
         elif N==4:
             for i in range(N):
                 P+=[a+i*delta]
@@ -45,6 +47,8 @@ def integracao(nfuncao, a, b, N=3, deGauss=True):
             for i in range(N):
                 P+=[a+i*delta]
             W=[2857.0*L/89600,15741.0*L/89600,27.0*L/2240,1209.0*L/5600,2889.0*L/44800,2889.0*L/44800,1209.0*L/5600,27.0*L/2240,15741.0*L/89600,2857.0*L/89600]
+    #Metodo da Quadratura de Gauss
+    #Pesos da Quadratura de Gauss são tabelados e ja definidos
     else: #http://keisan.casio.com/exec/system/1329114617
         if N==1:
             Z=[0]
@@ -76,42 +80,42 @@ def integracao(nfuncao, a, b, N=3, deGauss=True):
         elif N==10:
             Z=[-0.973906528517172,-0.8650633666889845,-0.6794095682990244,-0.4333953941292472,-0.1488743389816312,0.1488743389816312,0.4333953941292472,0.6794095682990244,0.8650633666889845,0.973906528517172]
             W=[0.0666713443086881,0.1494513491505806,0.2190863625159820,0.2692667193099964,0.295524224714753,0.295524224714753,0.2692667193099964,0.2190863625159820,0.1494513491505806,0.0666713443086881]
-        P=[]
+        P=[] #inicializa lista de pontos
         for i in Z:
-            P+=[(a+b+i*L)/2.0]
+            P+=[(a+b+i*L)/2.0] #calcula os pontos em que a funcao sera avaliada para posterior integracao
     integral=0
     for i in range(N):
-        integral+=W[i]*funcao(nfuncao,P[i])
+        integral+=W[i]*funcao(nfuncao,P[i]) #integra a funcao multiplicando a funcao f calculada no ponto P[i] por W[i] (respectivo peso)
     if deGauss:
-        integral*=L/2.0
+        integral*=L/2.0 #na quadratura de gauss multiplica-se ainda o termo obtido por L/2.0 para concluir a integracao  
     return integral
 
-def funcao(n, x):
+def funcao(n, x): #retorna valores das funcoes da lista 5
     if n<1 or n>5:
         return "Funcao desconhecida"
-    if n==1:
+    if n==1: #retorna valor da funcao do exericio 2
         return exp(-x**2/2)/sqrt(2*pi)
-    if n==2:
+    if n==2: #retorna valor da funcao do exericio 3
         omegaN=1.0
         sN=2.0
         csi=0.05
-        return sN/((1-(x/omegaN)**2)**2+(2*csi*x/omegaN)**2)
-    if n==2.5:
+        return sN/((1-(x/omegaN)**2 )**2+(2*csi*x/omegaN)**2)
+    if n==2.5: #retorna valor da segunda funcao do exercicio 3
         omegaN=1.0
         sN=2.0
         csi=0.05
         return (x**2)*sN/((1-(x/omegaN)**2)**2+(2*csi*x/omegaN)**2)
-    if n==3:
+    if n==3: #retorna valor da funcao do exercicio 4
         hs=3.0
         tz=5.0
         return (funcao(2,x)/2)*exp(-16*pi**3/((x*tz)**4))*4*(pi**3)*(hs**2)/((x**5)*(tz**4))
-    if n==3.5:
+    if n==3.5: #retorna valor da segunda funcao do exericio 4
         hs=3.0
         tz=5.0
         return (x**2)*(funcao(2,x)/2)*exp(-16*pi**3/((x*tz)**4))*4*(pi**3)*(hs**2)/((x**5)*(tz**4))
-    if n==4:
+    if n==4: #retorna valor da funcao do exericio 5
         return 2+2*x-x**2+3*x**3
-    if n==5:
+    if n==5: #retorna valor da funcao do exericio 6
         return 1.0/(1+x**2)
 
 def funcao1(x):
